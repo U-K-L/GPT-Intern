@@ -1,0 +1,13 @@
+﻿<Window x:Class="GPTSWE.InputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Input Dialog" Height="200" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Enter your input:"/>
+        <TextBox x:Name="UserInputTextBox" Height="25" Margin="0,0,0,10"/>
+        <Button Content="Submit" Click="SubmitButton_Click" Width="75" HorizontalAlignment="Right"/>
+        <TextBlock Text="Response:" Margin="0,10,0,0"/>
+        <TextBox x:Name="ResponseTextBox" Height="50" IsReadOnly="True" TextWrapping="Wrap"/>
+    </StackPanel>
+</Window>
+

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="GPTSWE.GPTSWEToolWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- For responses -->
+            <RowDefinition Height="Auto"/>
+            <!-- For input -->
+        </Grid.RowDefinitions>
+
+        <!-- Scrollable area for responses -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ResponsesPanel" />
+        </ScrollViewer>
+
+        <!-- Input area -->
+        <DockPanel Grid.Row="1" Margin="0,10,0,0">
+            <!-- Rounded Border -->
+            <Border Background="#2a2d30"
+            CornerRadius="25"
+            DockPanel.Dock="Left"
+            VerticalAlignment="Center">
+                <!-- Input TextBox -->
+                <TextBox x:Name="UserInputTextBox" 
+                 Width="400"
+                 FontSize="14"
+                 VerticalContentAlignment="Top"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 MinHeight="50"
+                 MaxHeight="150"
+                 PreviewKeyDown="UserInputTextBox_PreviewKeyDown"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 Foreground="White"
+                 Padding="10,0"/>
+            </Border>
+
+            <!-- Icon Button -->
+            <Button Click="SubmitButton_Click" DockPanel.Dock="Bottom"
+            Width="30" Height="30"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            ToolTip="Send" RenderTransformOrigin="-3.274,0.846">
+                <Image Source="Resources/arrow_right.png" Width="32" Height="32"/>
+            </Button>
+        </DockPanel>
+    </Grid>
+</UserControl>
