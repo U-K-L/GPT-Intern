@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace GPTSWE
 {
-    [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [Guid("E1C8CB52-89AE-447F-A169-B257C2C8C028")]
     public class GPTSWESettings : DialogPage
     {
         private string apiKey = string.Empty;
+        private string model = string.Empty;
 
         // The property for the API key
         [Category("API Settings")]
@@ -24,6 +23,16 @@ namespace GPTSWE
         {
             get { return apiKey; }
             set { apiKey = value; }
+        }
+
+        // The property for the Model
+        [Category("Model Settings")]
+        [DisplayName("Model")]
+        [Description("Which model you are using here.")]
+        public string Model
+        {
+            get { return model; }
+            set { model = value; }
         }
 
         // Override the SaveSettingsToStorage method to persist the settings

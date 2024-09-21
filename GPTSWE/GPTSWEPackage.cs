@@ -33,6 +33,7 @@ namespace GPTSWE
     public sealed class GPTSWEPackage : AsyncPackage
     {
         public static string APIKEY = "";
+        public static string MODEL = "";
         /// <summary>
         /// GPTSWEPackage GUID string.
         /// </summary>
@@ -46,6 +47,15 @@ namespace GPTSWE
             var apiSettings = (GPTSWESettings)GetDialogPage(typeof(GPTSWESettings));
 
             return apiSettings.ApiKey;
+        }
+
+        private async Task<string> GetModelAsync()
+        {
+            await JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            var modelSettings = (GPTSWESettings)GetDialogPage(typeof(GPTSWESettings));
+
+            return modelSettings.Model;
         }
         #region Package Members
 
@@ -64,6 +74,7 @@ namespace GPTSWE
             await Command1.InitializeAsync(this);
             await GPTSWEToolWindowCommand.InitializeAsync(this);
             APIKEY = GetApiKeyAsync().Result;
+            MODEL = GetModelAsync().Result;
         }
 
         #endregion

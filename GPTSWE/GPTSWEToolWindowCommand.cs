@@ -676,11 +676,8 @@ namespace GPTSWE
                         if (i >= 0 && i < item.FileCount)
                         {
                             string filePath = item.FileNames[i];
-                            if (filePath.EndsWith(".cs") || filePath.EndsWith(".txt"))
-                            {
-                                content += "FILE FULL PATH IS: { " + filePath + "} \n";
-                                content += System.IO.File.ReadAllText(filePath) + "\n";
-                            }
+                            content += "FILE FULL PATH IS: { " + filePath + "} \n";
+                            content += System.IO.File.ReadAllText(filePath) + "\n";
                         }
                     }
 
@@ -691,13 +688,7 @@ namespace GPTSWE
                 }
                 catch (Exception ex)
                 {
-                    VsShellUtilities.ShowMessageBox(
-                        Instance.package,
-                        $"An error occurred while reading project items: {ex.Message}",
-                        "Error",
-                        OLEMSGICON.OLEMSGICON_CRITICAL,
-                        OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                        OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
                 }
             }
 
@@ -717,10 +708,7 @@ namespace GPTSWE
                         if (i >= 0 && i < item.FileCount)
                         {
                             string filePath = item.FileNames[i];
-                            if (filePath.EndsWith(".cs") || filePath.EndsWith(".txt"))
-                            {
-                                content += "FILE PATH IS: { " + filePath + "} \n";
-                            }
+                            content += "FILE PATH IS: { " + filePath + "} \n";
                         }
                     }
 
@@ -731,13 +719,6 @@ namespace GPTSWE
                 }
                 catch (Exception ex)
                 {
-                    VsShellUtilities.ShowMessageBox(
-                        Instance.package,
-                        $"An error occurred while reading project items: {ex.Message}",
-                        "Error",
-                        OLEMSGICON.OLEMSGICON_CRITICAL,
-                        OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                        OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
                 }
             }
 

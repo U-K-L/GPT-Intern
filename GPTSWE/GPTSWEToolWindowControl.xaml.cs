@@ -79,13 +79,19 @@ namespace GPTSWE
 
         private static async Task<AsyncVoidMethodBuilder> CreateAgent()
         {
-            string modelId = "gpt-4o";
+            string modelId = GPTSWEPackage.MODEL;
             string apiKey = GPTSWEPackage.APIKEY; // Using settings for API key
 
             if (string.IsNullOrEmpty(apiKey))
             {
                 MessageBox.Show("API key not set in Visual Studio settings.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 throw new InvalidOperationException("API key not found");
+            }
+
+            if (string.IsNullOrEmpty(modelId))
+            {
+                MessageBox.Show("Model not set in Visual Studio settings.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Model not found");
             }
 
             // Create a kernel with Azure OpenAI chat completion

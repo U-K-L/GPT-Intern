@@ -28,7 +28,7 @@
             VerticalAlignment="Center">
                 <!-- Input TextBox -->
                 <TextBox x:Name="UserInputTextBox" 
-                 Width="400"
+                 Width="Auto"
                  FontSize="14"
                  VerticalContentAlignment="Top"
                  AcceptsReturn="True"
@@ -42,15 +42,6 @@
                  Foreground="White"
                  Padding="10,0"/>
             </Border>
-
-            <!-- Icon Button -->
-            <Button Click="SubmitButton_Click" DockPanel.Dock="Bottom"
-            Width="30" Height="30"
-            Background="Transparent"
-            BorderBrush="Transparent"
-            ToolTip="Send" RenderTransformOrigin="-3.274,0.846">
-                <Image Source="Resources/arrow_right.png" Width="32" Height="32"/>
-            </Button>
         </DockPanel>
     </Grid>
 </UserControl>
